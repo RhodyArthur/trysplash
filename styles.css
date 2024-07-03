@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: #313E51;
+}
+
 .nav-tools {
     display: flex;
     justify-content: space-between;
@@ -18,7 +22,6 @@
     main {
         width: 100vw;
         height: 100vh;
-        background-color: #313E51;
         margin: 50px auto;
     }
 
