@@ -1,51 +1,269 @@
-*, ::before, ::after {
-    box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+
+body{
+    background-color: rgb(199, 202, 206);
+    font-family: 'Rubik', sans-serif;
 }
 
-body {
-    background-color: #313E51;
-}
-
-.nav-tools {
+.questions__container {
+    /* border: 2px solid red; */
+    width: 80rem;
+    height: 35rem;
     display: flex;
-    justify-content: space-between;
-    color: #fff;
-    border: 1px solid red;
-    padding: 10px 20px;
-}
+  }
+  
+  /* left and right sections to have same width */
+  .questions__leftsection,
+  .questions__rightsection {
+    /* border: 2px solid blue; */
+    width: 50%;
+    padding: 1rem 3rem;
+  }
+  
+  /* questions left section syling starts here */
+  .questions__leftsection {
+    display: flex;
+    flex-direction: column;
+    padding-inline: 6rem;
+  }
+  
+  /* LEFT SECTION STYLING STARTS HERE */
+  /* Questions number styling */
+  .questions__number {
+    /* border: 2px solid green; */
+    height: 10%;
+    display: flex;
+    font-size: 1.5rem;
+  }
+  
+  /* Questions display Containter styling */
+  .questions__question {
+    /* border: 2px solid pink; */
+    height: 40%;
+    color: white;
+    font-size: 1.1rem;
+  }
+  
+  /* Questions Progress Bar */
+  
+  /* container */
+  .questions__progresscontainer {
+    /* border: 2px solid blue; */
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  
+  /* progress fill wrapper */
+  .questions__progressline {
+    background-color: #3b4d66;
+    /* border: 2px solid red; */
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  
+  /* progress fill */
+  .questions__progress {
+    width: 30%;
+    height: 1rem;
+    background-color: #713bad;
+  }
+  /* LEFT SECTION STYLING ENDS HERE */
+  
+  /* RIGHT SECTION STYLING STARTS HERE */
+  .questions__rightsection {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .questions__optionscontainer {
+    /* border: 2px solid red; */
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .questions__options {
+    background-color: #3b4d66;
+    height: 25%;
+    /* border: 2px solid blue; */
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .questions__options > span {
+    background-color: #f4f6fa;
+    color: #626c7f;
+    width: 9%;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 0.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .questions__options > p {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+  }
+  
+  /* submit button */
+  .buttons {
+    /* border: 2px solid red; */
+    background-color: #a729f5;
+    color: white;
+    display: block;
+    width: 100%;
+    height: 15%;
+    font-size: 1.8rem;
+    border-radius: 20px;
+    border: none;
+    transition: background-color 0.3s;
+  }
+  
+  /* hovering styles starts here */
+  .questions__options:hover > span {
+    background-color: #f6e7ff;
+    color: #a729f5;
+  }
+  .buttons:hover {
+    background-color: #d394fa;
+  }
+  /* hovering styles ends here */
+  
+  /* RIGHT SECTION STYLING ENDS HERE */
+  
+  
+  
+  
+  /* clicked styles */
+  .questions__options[clicked] {
+      outline: 4px solid #a729f5;
+      
+    }
+    
+    .questions__options[clicked] > span {
+     background-color: #A729F5;
+     color: white;
+    }
 
-.content {
-    padding: 20px;
-}
+
 /* mobile */
-@media (max-width: 480px){
-    main {
-        width: 90vw;
-        height: 90vh;
-        margin: 50px auto;
-    }
-
-    .question, .options {
-        height: auto;
-        border: 1px solid #fff;
-        margin-bottom: 20px;
-    }
-
-    p {
+@media (width < 991px){
+    p, h1 {
         margin: 0;
         padding: 0;
     }
-
-    .options__tags{
-        border-radius: 5px;
-        padding: 8px;
-        border: 1px solid gold;
-        margin-bottom: 10px;
+    .questions__container {
+        width: 90vw;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
     }
 
-    .options button {
-        width: 100%;
-        padding: 5px;
-        border-radius: 4px;
+    /* left and right sections */
+    .questions__leftsection, .questions__rightsection {
+        width: 90vw;
+        padding: 0;
+        margin: auto;
+    }
+
+    /* question number styling */
+    .questions__number {
+        font-size: 1.125rem;
+        margin-bottom: 0.625em;
+        font-style: italic;
+    }
+
+    /* question display container */
+    .questions__question {
+        flex: 2;
+        font-size: 1rem;
+        line-height: 1.1;
+        margin-bottom: 0.75em;
+    }
+
+    /* question progressbar container */
+    .questions__progresscontainer {
+       margin: 0.75em 0;
+       height: 10%;
+    }
+
+    /* options container styling */
+    .questions__optionscontainer{
+        height: auto;
+        gap: 0.625rem;
+    }
+
+    .questions__options{
+        height: auto;
+        padding: 0.5em; /*8px */
+        gap: 0.8rem;
+        border-radius: 10px;
+    }
+
+    .questions__options > span {
+        width: 7%;
+        height: 70%;
+        font-size: 1rem;
+    }
+    .questions__options > p {
+        font-size: 1rem;
+    }
+
+    .buttons {
+        height: 25%;
+        padding: 10px;
+        border-radius: 10px;
+    }
+}
+
+@media (max-width:480px){
+    .questions__question {
+        font-size: 0.8rem;
+    }
+}
+
+@media(min-width: 481px) and (max-width: 992px){
+
+    .questions__number{
+        font-size: 1.25rem;
+    }
+    .questions__question {
+        font-size: 1.2rem;
+    }
+    .questions__optionscontainer {
+        gap: 1rem;
+        margin-top: 3em;
+    }
+
+    .questions__options {
+        padding: 2em;
+        gap: 1.5rem;
+        border-radius: 20px;
+    }
+
+    .questions__options > span {    width: 9%;
+        height: 100%;
+        padding: 10px;
+        font-size: 1.5rem;
+        border-radius: 8px;
+    }
+
+    .questions__options > p {
+        font-size: 2rem;
+    }
+
+    .buttons {
+        margin-top: 0.93em;
+        padding: 1.25em;
     }
 }
